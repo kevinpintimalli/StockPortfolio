@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.temple.stockportfolio.Fragments.SearchFragment"
+    android:orientation="horizontal">
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stockText"
+        android:layout_weight="1"
+        android:hint="@string/enter_stock"
+        android:completionThreshold="1"
+        android:maxEms="6"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:id="@+id/goButton"
+        android:text="@string/get_details"/>
+
+
+</LinearLayout>

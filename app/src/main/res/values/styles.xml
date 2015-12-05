@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="RadioButton" >
+        <item name="android:color">@color/radio_button_unselected_color</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+</resources>
