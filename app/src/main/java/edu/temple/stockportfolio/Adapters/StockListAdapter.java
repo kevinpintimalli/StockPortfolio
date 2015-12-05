@@ -52,7 +52,7 @@ public class StockListAdapter extends BaseAdapter {
         TextView value = (TextView) v.findViewById(R.id.liststockvalue);
 
         nameShort.setText(stocks.get(position).getShortName());
-        name.setText(stocks.get(position).getName());
+        name.setText(stocks.get(position).getName().substring(0,Math.min(15,stocks.get(position).getName().length())));
 
         double current = stocks.get(position).getCurrentPrice();
         double opening = stocks.get(position).getOpeningPrice();

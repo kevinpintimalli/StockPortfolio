@@ -68,10 +68,10 @@ public class StockDetailsFragment extends Fragment {
         symbol = sm.getShortName();
 
         stockHeader.setText(sm.getShortName() + ": "+sm.getName());
-        currentPrice.setText("Current: $"+String.format("%.2f", sm.getCurrentPrice()));
-        openingPrice.setText("Opening: $"+String.format("%.2f", sm.getOpeningPrice()));
-        percentChange.setText("Change:"+String.format("%.2f", sm.getChangePercent())+"%");
-        volume.setText("Volume:"+sm.getVolume());
+        currentPrice.setText("Current: \n$"+String.format("%.2f", sm.getCurrentPrice()));
+        openingPrice.setText("Opening: \n$"+String.format("%.2f", sm.getOpeningPrice()));
+        percentChange.setText("Change: \n"+String.format("%.2f", sm.getChangePercent())+"%");
+        volume.setText("Volume: \n"+sm.getVolume());
 
         dayChoice.setTintColor(R.color.radio_button_selected_color, R.color.black);
 
