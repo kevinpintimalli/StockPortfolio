@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -55,23 +57,25 @@ public class MainActivity extends Activity implements StockListFragment.OnFragme
         stockManager = StockManager.getInstance();
         stockManager.setContext(this);
 
-        Intent intent = new Intent(MainActivity.this,StockRetrievalService.class);
-        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+        if(isNetworkActive()) {
+            Intent intent = new Intent(MainActivity.this, StockRetrievalService.class);
+            bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 
-        stocks = new ArrayList<>();
+            stocks = new ArrayList<>();
 
-        Bundle args = new Bundle();
-        args.putParcelableArrayList(getString(R.string.stock_list_key),stocks);
+            Bundle args = new Bundle();
+            args.putParcelableArrayList(getString(R.string.stock_list_key), stocks);
 
-        stockListFragment = new StockListFragment();
-        currentSymbol = "";
-        isSearch = false;
-        stockListVisible=true;
+            stockListFragment = new StockListFragment();
+            currentSymbol = "";
+            isSearch = false;
+            stockListVisible = true;
 
-        loadFragment(R.id.stocklistfragment, stockListFragment, false,args);
+            loadFragment(R.id.stocklistfragment, stockListFragment, false, args);
 
-        if(twoPanes){
-            loadDetails(null,true);
+            if (twoPanes) {
+                loadDetails(null, true);
+            }
         }
     }
 
@@ -309,6 +313,17 @@ public class MainActivity extends Activity implements StockListFragment.OnFragme
             if (stockListVisible) {
                 mOptionsMenu.findItem(R.id.deleteStocks).setVisible(true);
             }
+        }
+    }
+
+    public boolean isNetworkActive(){
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            return true;
+        } else {
+            Toast.makeText(this, "No Network Access", Toast.LENGTH_SHORT).show();
+            return false;
         }
     }
 }
