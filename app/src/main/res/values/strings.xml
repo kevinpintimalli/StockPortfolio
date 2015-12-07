@@ -12,6 +12,11 @@
     <string name="new_menu">Search</string>
     <string name="delete_menu">Delete</string>
 
+    <string name="current">Current</string>
+    <string name="opening">Opening</string>
+    <string name="change">Change</string>
+    <string name="volume">Volume</string>
+
     <string name="toast_invalid_stock">Entered stock is invalid.</string>
     <string name="toast_already_exists">Entered stock already added.</string>
 

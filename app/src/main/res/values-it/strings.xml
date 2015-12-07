@@ -18,6 +18,11 @@
     <string name="toast_invalid_stock">Entrato azione non è valido.</string>
     <string name="toast_already_exists">Entrato magazzino già aggiunto.</string>
 
+    <string name="current">Corrente</string>
+    <string name="opening">Apertura</string>
+    <string name="change">Modificare</string>
+    <string name="volume">Volume</string>
+
     <string name="stock_list_key">Stock List Key</string>
     <string name="stock_details_key">stock.details.key</string>
     <string name="stock_details_bool_key">stock.details.bool.key</string>
