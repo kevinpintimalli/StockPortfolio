@@ -59,6 +59,7 @@ public class MainActivity extends Activity implements StockListFragment.OnFragme
 
         if(isNetworkActive()) {
             Intent intent = new Intent(MainActivity.this, StockRetrievalService.class);
+            startService(intent);
             bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 
             stocks = new ArrayList<>();
@@ -263,7 +264,7 @@ public class MainActivity extends Activity implements StockListFragment.OnFragme
                 }
             }
             else if(intent.hasExtra(getString(R.string.service_stock_update_key))){
-                Log.d("Update received","YAY");
+
                 HashMap<String,StockModel> stocksTemp = (HashMap<String,StockModel>) intent.getSerializableExtra(getString(R.string.service_stock_update_key));
                 for(String key:stocksTemp.keySet()){
                     for(int i=0;i<stocks.size();i++){
